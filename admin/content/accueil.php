@@ -1,1 +1,1 @@
-<?php
+<p>admin</p>
