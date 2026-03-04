@@ -1,6 +1,8 @@
 <?php
 
 session_start();
+include('src/php/utils/all_includes.php');
+
 
 ?>
 
