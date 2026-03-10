@@ -9,7 +9,10 @@
                     <a class="nav-link" href="./index.php?page=type.php">Type</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Pricing</a>
+                    <a class="nav-link" href="./index.php?page=login.php">Login</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="./index.php?page=disconnect.php">Sortir</a>
                 </li>
             </ul>
         </div>
