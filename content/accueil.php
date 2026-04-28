@@ -1,1 +1,1 @@
-<h2>Accueil Clients</h2>
+<p>Accueil Clients</p>

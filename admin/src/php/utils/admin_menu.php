@@ -3,10 +3,8 @@
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav">
                 <a class="nav-link" aria-current="page" href="./index_.php?page=accueil.php">Accueil</a>
-                <a class="nav-link" href="./index_.php?page=login.php">Login</a>
-                <a class="nav-link" href="../index_.php?page=accueil.php">Vitrine</a>
-                <a class="nav-link" href="./index_.php?page=disconnect.php">Sortir (placer ailleurs)</a>
-
+                <a class="nav-link" href="../index_.php?page=accueil.php">Accueil client</a>
+                <a class="nav-link" href="./index_.php?page=disconnect.php">Déconnection</a>
             </div>
         </div>
     </div>

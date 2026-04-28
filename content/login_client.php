@@ -26,4 +26,6 @@ if (isset($_GET['submit'])) {
         <input type="password" class="form-control" name="password" id="password">
     </div>
     <button type="submit" class="btn btn-primary" name="submit">Se connecter</button>
+    <br>
+    <a href="admin/index_.php?page=login.php">Connexion admin</a>
 </form>
