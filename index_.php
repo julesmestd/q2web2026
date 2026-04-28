@@ -1,7 +1,8 @@
 <?php
 //INDEX CLIENT
-session_start();
+
 require 'admin/src/php/utils/all_includes.php';
+session_start();
 
 ?>
 <!doctype html >

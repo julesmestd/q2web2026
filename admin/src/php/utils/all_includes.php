@@ -10,7 +10,6 @@ if ($isAdmin) {
     }
 
 } else {
-print "cc    ";
     $pathDb = 'admin/src/php/db/db_pg_connect.php';
     $pathAutoloader = 'admin/src/php/classes/Autoloader.class.php';
 }
@@ -20,6 +19,11 @@ if (file_exists($pathDb) && file_exists($pathAutoloader)) {
     include $pathAutoloader;
 
     Autoloader::register();
+    if ($isAdmin) {
+        require_once 'src/php/classes/Client.class.php';
+    } else {
+        require_once 'admin/src/php/classes/Client.class.php';
+    }
 
     $cnx = Connexion::getInstance($dsn, $user, $pass);
 } else {

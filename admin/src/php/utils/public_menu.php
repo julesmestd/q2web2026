@@ -9,9 +9,22 @@
         <li class="nav-item">
             <a class="nav-link" href="index_.php?page=accueil.php">Accueil</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="index_.php?page=compte.php">Compte</a>
-        </li>
+          <?php if (isset($_SESSION['client'])): ?>
+              <li class="nav-item">
+                  <span class="nav-link">Bonjour <?= $_SESSION['client']->prenom_client ?></span>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="index_.php?page=disconnect.php">Déconnexion</a>
+              </li>
+          <?php else: ?>
+              <li class="nav-item">
+                  <a class="nav-link" href="index_.php?page=login_client.php">Connexion</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="index_.php?page=compte.php">Inscription</a>
+              </li>
+          <?php endif; ?>
+
 
 
       </ul>

@@ -5,8 +5,7 @@ class Admin
 {
     public function __construct(
         public readonly int $id_admin,
-        public readonly string $nom_admin,
-        public readonly int $statut
+        public readonly string $nom_admin
     ){}
 
 }

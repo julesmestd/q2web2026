@@ -1,6 +1,7 @@
 <?php
-session_start();
+
 require 'src/php/utils/all_includes.php';
+session_start();
 if(isset($_SESSION['admin']) && !isset($_SESSION['page'])){
     $_SESSION["page"]="accueil.php";
 }
@@ -9,7 +10,7 @@ if(isset($_SESSION['admin']) && !isset($_SESSION['page'])){
 <!doctype html >
 <html lang = "fr" >
 <head>
-    <title>Boulangerie 2026</title>
+    <title>Pokemon</title>
     <meta charSet="utf-8"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>

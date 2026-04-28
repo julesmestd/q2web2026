@@ -15,8 +15,6 @@ if(isset($_GET['submit'])) {
         } else {
             print "<br>Accès réservé aux administrateurs<br>";
         }
-
-
     }
 }
 
