@@ -20,9 +20,9 @@ if (file_exists($pathDb) && file_exists($pathAutoloader)) {
 
     Autoloader::register();
     if ($isAdmin) {
-        require_once 'src/php/classes/Client.class.php';
+        require_once __DIR__ . '/../classes/Client.class.php';
     } else {
-        require_once 'admin/src/php/classes/Client.class.php';
+        require_once __DIR__ . '/../../../../admin/src/php/classes/Client.class.php';
     }
 
     $cnx = Connexion::getInstance($dsn, $user, $pass);
