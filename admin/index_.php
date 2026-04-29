@@ -22,7 +22,6 @@ if(isset($_SESSION['admin']) && !isset($_SESSION['page'])){
 <body>
     <div id="wrapper">
         <header id="header">
-            <p>image du header ou autre chose </p>
             <?php
             if(file_exists('src/php/utils/admin_menu.php')) {
                 include ('src/php/utils/admin_menu.php');

@@ -4,6 +4,7 @@
             <div class="navbar-nav">
                 <a class="nav-link" aria-current="page" href="./index_.php?page=accueil.php">Accueil</a>
                 <a class="nav-link" href="../index_.php?page=accueil.php">Accueil client</a>
+                <a class="nav-link" href="./index_.php?page=type.php">Gestion des types</a>
                 <a class="nav-link" href="./index_.php?page=disconnect.php">Déconnection</a>
             </div>
         </div>

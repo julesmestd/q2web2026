@@ -19,7 +19,6 @@ session_start();
 <body>
     <div id="wrapper">
         <header id="header">
-            <p>image du header ou autre chose </p>
             <?php
             if(file_exists('admin/src/php/utils/public_menu.php')) {
                 include ('admin/src/php/utils/public_menu.php');
