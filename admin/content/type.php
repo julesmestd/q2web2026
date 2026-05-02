@@ -38,7 +38,7 @@ $liste = $types->getAllTypes();
             <tr>
                 <td><?= $t->id_type ?></td>
                 <td><?= $t->nom_type ?></td>
-                <td class="delete delete-type" data-id="<?= $row->id_type ?>">
+                <td class="delete delete-type" data-id="<?= $t->id_type ?>">
                     <a href="#"><i class="fa-solid fa-trash"></i></a>
                 </td>
             </tr>

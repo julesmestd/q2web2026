@@ -8,7 +8,7 @@ if(isset($_GET['submit'])) {
         $adm = $admin->getAdmin($login,$password);
         //var_dump($adm);
         if($adm != null) {
-            $_SESSION['admin'] = 1;
+            $_SESSION['admin'] = $adm;
             $_SESSION['page'] = "accueil.php"; //page par défaut
             header("location:./index_.php?page=accueil.php");
             exit(); //pour arrêter l'exécution de la suite

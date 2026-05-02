@@ -29,3 +29,6 @@ if (isset($_GET['submit'])) {
     <br>
     <a href="admin/index_.php?page=login.php">Connexion admin</a>
 </form>
+<p class="mt-3">
+    Pas encore de compte ? <a href="index_.php?page=compte.php">Créer un compte</a>
+</p>
