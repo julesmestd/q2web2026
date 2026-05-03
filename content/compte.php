@@ -6,8 +6,26 @@ if (isset($_GET['submit_client'])) {
         $clientDAO = new ClientDAO($cnx);
         $retour = $clientDAO->addClient($nom, $prenom, $email, $password, $telephone, $cp, $ville, $nom_rue, $num_rue);
         if ($retour != null) {
-            print "<br>Success<br>";
+
+            $clientDAO = new ClientDAO($cnx);
+            $client = $clientDAO->getClient($email, $password);
+            $_SESSION['client'] = $client;
+
+            // Transférer le panier session en base
+            if (!empty($_SESSION['panier'])) {
+                $panierDAO = new PanierDAO($cnx);
+                foreach ($_SESSION['panier'] as $id_article => $quantite) {
+                    for ($i = 0; $i < $quantite; $i++) {
+                        $panierDAO->ajouterArticle((int)$client->id_client, $id_article);
+                    }
+                }
+                unset($_SESSION['panier']);
+            }
+
+            header("location: index_.php?page=accueil.php");
+            exit();
         }
+
     }
 }
 ?>

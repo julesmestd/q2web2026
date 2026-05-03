@@ -6,6 +6,19 @@ if (isset($_GET['submit'])) {
         $client = $clientDAO->getClient($email, $password);
         if ($client != null) {
             $_SESSION['client'] = $client;
+
+
+            if (!empty($_SESSION['panier'])) {
+                $panierDAO = new PanierDAO($cnx);
+                foreach ($_SESSION['panier'] as $id_article => $quantite) {
+                    for ($i = 0; $i < $quantite; $i++) {
+                        $panierDAO->ajouterArticle((int)$client->id_client, $id_article);
+                    }
+                }
+                unset($_SESSION['panier']);
+            }
+
+
             $_SESSION['page'] = "accueil.php";
             header("location: index_.php?page=accueil.php");
             exit();

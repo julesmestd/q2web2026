@@ -28,6 +28,28 @@ if (isset($_GET['action']) && isset($_GET['id'])) {
         header("location: index_.php?page=panier.php");
         exit();
     }
+
+    if ($_GET['action'] == 'modifier') {
+        $quantite = (int)$_GET['quantite'];
+        if ($quantite <= 0) {
+            // Si quantité 0 ou moins on supprime
+            if (!isset($_SESSION['client'])) {
+                unset($_SESSION['panier'][$id]);
+            } else {
+                $panierDAO = new PanierDAO($cnx);
+                $panierDAO->effacerArticle((int)$_SESSION['client']->id_client, $id);
+            }
+        } else {
+            if (!isset($_SESSION['client'])) {
+                $_SESSION['panier'][$id] = $quantite;
+            } else {
+                $panierDAO = new PanierDAO($cnx);
+                $panierDAO->updateQuantite((int)$_SESSION['client']->id_client, $id, $quantite);
+            }
+        }
+        header("location: index_.php?page=panier.php");
+        exit();
+    }
 }
 ?>
 
@@ -52,19 +74,25 @@ if (isset($_GET['action']) && isset($_GET['id'])) {
                     $sous_total = $art->prix * $quantite;
                     $total += $sous_total;
                     ?>
-                    <tr>
+                    <tr data-id="<?= $id_article ?>" data-prix="<?= $art->prix ?>">
                         <td><?= $art->nom_article ?></td>
-                        <td><?= $quantite ?></td>
-                        <td><?= number_format($sous_total, 2) ?>€</td>
                         <td>
-                            <a href="index_.php?page=panier.php&action=supprimer&id=<?= $id_article ?>"
-                               class="btn btn-danger btn-sm">Supprimer</a>
+                            <button class="btn btn-sm btn-outline-secondary btn-moins" data-id="<?= $id_article ?>">-</button>
+                            <span class="quantite"><?= $quantite ?></span>
+                            <button class="btn btn-sm btn-outline-secondary btn-plus" data-id="<?= $id_article ?>">+</button>
                         </td>
+                        <td class="prix-article"><?= number_format($sous_total, 2) ?>€</td>
+                        <td class="delete" >
+                            <a href="#" class="delete-panier" data-id="<?= $id_article ?>">
+                                <i class="fa-solid fa-trash"></i>
+                            </a>
+                        </td>
+
                     </tr>
                 <?php endforeach; ?>
                 </tbody>
             </table>
-            <p><strong>Total : <?= number_format($total, 2) ?>€</strong></p>
+            <p><strong>Total : <span id="total"><?= number_format($total, 2) ?>€</span></strong></p>
             <a href="index_.php?page=login_client.php" class="btn btn-primary">Passer commande</a>
         <?php endif; ?>
 
@@ -87,19 +115,25 @@ if (isset($_GET['action']) && isset($_GET['id'])) {
                     $sous_total = $ligne['prix'] * $ligne['quantite'];
                     $total += $sous_total;
                     ?>
-                    <tr>
+                    <tr data-id="<?= $ligne['id_article'] ?>" data-prix="<?= $ligne['prix'] ?>">
                         <td><?= $ligne['nom_article'] ?></td>
-                        <td><?= $ligne['quantite'] ?></td>
-                        <td><?= number_format($sous_total, 2) ?>€</td>
                         <td>
-                            <a href="index_.php?page=panier.php&action=supprimer&id=<?= $ligne['id_article'] ?>"
-                               class="btn btn-danger btn-sm">Supprimer</a>
+                            <button class="btn btn-sm btn-outline-secondary btn-moins" data-id="<?= $ligne['id_article'] ?>">-</button>
+                            <span class="quantite"><?= $ligne['quantite'] ?></span>
+                            <button class="btn btn-sm btn-outline-secondary btn-plus" data-id="<?= $ligne['id_article'] ?>">+</button>
                         </td>
+                        <td class="prix-article"><?= number_format($sous_total, 2) ?>€</td>
+                        <td class="delete" >
+                            <a href="#" class="delete-panier" data-id="<?= $ligne['id_article'] ?>">
+                                <i class="fa-solid fa-trash"></i>
+                            </a>
+                        </td>
+
                     </tr>
                 <?php endforeach; ?>
                 </tbody>
             </table>
-            <p><strong>Total : <?= number_format($total, 2) ?>€</strong></p>
+            <p><strong>Total : <span id="total"><?= number_format($total, 2) ?>€</span></strong></p>
             <a href="index_.php?page=commande.php" class="btn btn-primary">Passer commande</a>
         <?php endif; ?>
     <?php endif; ?>

@@ -78,4 +78,77 @@ $(document).ready(function () {
         }
     });
 
+    $(document).on('click', '.delete-panier', function (e) {
+        e.preventDefault();
+        let id = $(this).data('id');
+        if (confirm("Supprimer cet article du panier ?")) {
+            let tr = $(this).closest('tr');
+            let prix = parseFloat(tr.find('.prix-article').text().replace('€', '').replace(',', '.'));
+            tr.fadeOut('slow', function() {
+                $(this).remove();
+                let total = 0;
+                $('tr .prix-article').each(function() {
+                    total += parseFloat($(this).text().replace('€', '').replace(',', '.'));
+                });
+                $('#total').text(total.toFixed(2) + '€');
+            });
+            $.ajax({
+                type: 'get',
+                dataType: 'json',
+                data: 'id_article=' + id,
+                url: 'admin/src/php/ajax/ajaxDeletePanier.php',
+                success: function (data) {
+                    console.log("Suppression OK : " + data);
+                }
+            });
+        }
+    });
+
+    $(document).on('click', '.btn-plus', function () {
+        let tr = $(this).closest('tr');
+        let id = tr.data('id');
+        let prix = parseFloat(tr.data('prix'));
+        let span = tr.find('.quantite');
+        let quantite = parseInt(span.text()) + 1;
+        span.text(quantite);
+        tr.find('.prix-article').text((prix * quantite).toFixed(2) + '€');
+        let total = 0;
+        $('tr .prix-article').each(function () {
+            total += parseFloat($(this).text().replace('€', '').replace(',', '.'));
+        });
+        $('#total').text(total.toFixed(2) + '€');
+        $.ajax({
+            type: 'get', dataType: 'json',
+            data: 'id_article=' + id + '&quantite=' + quantite,
+            url: 'admin/src/php/ajax/ajaxUpdateQuantite.php',
+            success: function (data) { console.log("Quantité : " + data); }
+        });
+    });
+
+    $(document).on('click', '.btn-moins', function () {
+        let tr = $(this).closest('tr');
+        let id = tr.data('id');
+        let prix = parseFloat(tr.data('prix'));
+        let span = tr.find('.quantite');
+        let quantite = parseInt(span.text()) - 1;
+        if (quantite < 1) {
+            return;
+        } else {
+            span.text(quantite);
+            tr.find('.prix-article').text((prix * quantite).toFixed(2) + '€');
+            let total = 0;
+            $('tr .prix-article').each(function () {
+                total += parseFloat($(this).text().replace('€', '').replace(',', '.'));
+            });
+            $('#total').text(total.toFixed(2) + '€');
+            $.ajax({
+                type: 'get', dataType: 'json',
+                data: 'id_article=' + id + '&quantite=' + quantite,
+                url: 'admin/src/php/ajax/ajaxUpdateQuantite.php',
+                success: function (data) { console.log("Quantité : " + data); }
+            });
+        }
+    });
+
+
 })
