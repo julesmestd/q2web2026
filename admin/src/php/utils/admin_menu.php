@@ -6,6 +6,7 @@
                 <a class="nav-link" href="../index_.php?page=accueil.php">Accueil client</a>
                 <a class="nav-link" href="./index_.php?page=type.php">Gestion des types</a>
                 <a class="nav-link" href="./index_.php?page=gestion_articles.php">Gestion des articles</a>
+                <a class="nav-link" href="./index_.php?page=commandes.php">Commandes</a>
                 <a class="nav-link" href="./index_.php?page=mon_compte.php">Admin</a>
             </div>
         </div>
