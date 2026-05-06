@@ -45,7 +45,7 @@ if(isset($_SESSION['admin']) && !isset($_SESSION['page'])){
                     $path = "content/" . $_SESSION['page'];
                 }
 
-                if(isset($path)){
+                if(isset($path) && file_exists($path)){
                     include($path);
                 }else{
                     include ("content/page404.php");

@@ -14,7 +14,8 @@ if (isset($_GET['action']) && isset($_GET['id'])) {
             $panierDAO = new PanierDAO($cnx);
             $panierDAO->ajouterArticle((int)$_SESSION['client']->id_client, $id);
         }
-        header("location: index_.php?page=panier.php");
+        $retour = $_SERVER['HTTP_REFERER'] ?? 'index_.php?page=accueil.php';
+        header("location: " . $retour);
         exit();
     }
 
@@ -31,21 +32,11 @@ if (isset($_GET['action']) && isset($_GET['id'])) {
 
     if ($_GET['action'] == 'modifier') {
         $quantite = (int)$_GET['quantite'];
-        if ($quantite <= 0) {
-            // Si quantité 0 ou moins on supprime
-            if (!isset($_SESSION['client'])) {
-                unset($_SESSION['panier'][$id]);
-            } else {
-                $panierDAO = new PanierDAO($cnx);
-                $panierDAO->effacerArticle((int)$_SESSION['client']->id_client, $id);
-            }
+        if (!isset($_SESSION['client'])) {
+            $_SESSION['panier'][$id] = $quantite;
         } else {
-            if (!isset($_SESSION['client'])) {
-                $_SESSION['panier'][$id] = $quantite;
-            } else {
-                $panierDAO = new PanierDAO($cnx);
-                $panierDAO->updateQuantite((int)$_SESSION['client']->id_client, $id, $quantite);
-            }
+            $panierDAO = new PanierDAO($cnx);
+            $panierDAO->updateQuantite((int)$_SESSION['client']->id_client, $id, $quantite);
         }
         header("location: index_.php?page=panier.php");
         exit();
@@ -138,5 +129,5 @@ if (isset($_GET['action']) && isset($_GET['id'])) {
         <?php endif; ?>
     <?php endif; ?>
 
-    <a href="index_.php?page=accueil.php" class="btn btn-secondary mt-2">Continuer mes achats</a>
+    <a href="javascript:history.back()" class="btn btn-secondary mt-2">Continuer mes achats</a>
 </div>

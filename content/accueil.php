@@ -7,11 +7,9 @@ $idsNouveautes = [7, 8, 9];
 
 $selection = array_filter($data, fn($art) => in_array($art->id_article, $idsAccueil));
 
-// Séparer nouveautés et reste
 $nouveautes = array_filter($selection, fn($art) => in_array($art->id_article, $idsNouveautes));
 $reste = array_filter($selection, fn($art) => !in_array($art->id_article, $idsNouveautes));
 
-// Grouper le reste par type
 $parType = [];
 foreach ($reste as $art) {
     $parType[$art->nom_type][] = $art;
@@ -25,11 +23,13 @@ foreach ($reste as $art) {
         <div class="row">
             <?php foreach ($nouveautes as $art): ?>
                 <div class="col-md-3 mb-4 text-center">
-                    <img src="admin/assets/images/<?= $art->image ?>"
-                         alt="<?= $art->nom_article ?>"
-                         class="img-fluid"
-                         style="max-height:150px; object-fit:contain;">
-                    <p class="mt-2"><?= $art->nom_article ?></p>
+                    <a href="index_.php?page=article.php&id=<?= $art->id_article ?>">
+                        <img src="admin/assets/images/<?= $art->image ?>"
+                             alt="<?= $art->nom_article ?>"
+                             class="img-fluid"
+                             style="max-height:150px; object-fit:contain;">
+                        <p class="mt-2"><?= $art->nom_article ?></p>
+                    </a>
                     <p><strong><?= number_format($art->prix, 2) ?>€</strong></p>
                     <a href="index_.php?page=panier.php&action=ajouter&id=<?= $art->id_article ?>"
                        class="btn btn-primary btn-sm">Ajouter au panier</a>
@@ -45,11 +45,13 @@ foreach ($reste as $art) {
             <div class="row">
                 <?php foreach ($liste as $art): ?>
                     <div class="col-md-3 mb-4 text-center">
-                        <img src="admin/assets/images/<?= $art->image ?>"
-                             alt="<?= $art->nom_article ?>"
-                             class="img-fluid"
-                             style="max-height:150px; object-fit:contain;">
-                        <p class="mt-2"><?= $art->nom_article ?></p>
+                        <a href="index_.php?page=article.php&id=<?= $art->id_article ?>">
+                            <img src="admin/assets/images/<?= $art->image ?>"
+                                 alt="<?= $art->nom_article ?>"
+                                 class="img-fluid"
+                                 style="max-height:150px; object-fit:contain;">
+                            <p class="mt-2"><?= $art->nom_article ?></p>
+                        </a>
                         <p><strong><?= number_format($art->prix, 2) ?>€</strong></p>
                         <a href="index_.php?page=panier.php&action=ajouter&id=<?= $art->id_article ?>"
                            class="btn btn-primary btn-sm">Ajouter au panier</a>
