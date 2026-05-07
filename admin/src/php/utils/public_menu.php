@@ -8,6 +8,11 @@
                 <li class="nav-item">
                     <a class="nav-link" href="index_.php?page=panier.php">Panier</a>
                 </li>
+                <form class="d-flex" role="search" action="index_.php" method="get">
+                    <input type="hidden" name="page" value="boutique.php">
+                    <input class="form-control me-2" type="search" name="recherche" placeholder="Rechercher...">
+                    <button class="btn btn-outline-success" type="submit">Recherche</button>
+                </form>
                 <?php if (isset($_SESSION['admin'])): ?>
                     <li class="nav-item">
                         <a class="nav-link" href="admin/index_.php?page=mon_compte.php">Admin</a>

@@ -3,14 +3,25 @@ $articles = new ArticleTypeDAO($cnx);
 $data = $articles->getVueArticles();
 
 $type = $_GET['type'] ?? null;
+$recherche = $_GET['recherche'] ?? null;
 
 if ($type) {
     $data = array_filter($data, fn($art) => strtolower($art->nom_type) === strtolower($type));
 }
+if ($recherche) {
+    $data = array_filter($data, fn($art) =>
+            str_contains(strtolower($art->nom_article), strtolower($recherche)) ||
+            str_contains(strtolower($art->nom_type), strtolower($recherche))
+    );
+    if (empty($data)) {
+        header("location: index_.php?page=page404.php");
+        exit();
+    }
+}
 ?>
 
 <div class="container mt-4">
-    <h2><?= $type ? ucfirst($type) . 's' : 'Tous les articles' ?></h2>
+    <h2><?= $type ? ucfirst($type)  : 'Tous les articles' ?></h2>
     <div class="row">
         <?php foreach ($data as $art): ?>
             <div class="col-md-3 mb-4 text-center">
