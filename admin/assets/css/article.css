@@ -1,0 +1,71 @@
+.btn-panier {
+    background-color: #921A84;
+    color: white;
+    padding: 6px 15px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-family: 'Jersey 25', serif;
+    display: inline-block;
+    margin-top: 5px;
+}
+
+.btn-panier:hover {
+    background-color: #BB77FF;
+    color: white;
+}
+
+.img-article-container {
+    text-align: center;
+}
+
+.img-article {
+    max-height: 400px;
+    object-fit: contain;
+    width: 100%;
+}
+
+.detail-article {
+    padding: 20px;
+}
+
+.badge-type {
+    background-color: #BB77FF;
+    color: white;
+    padding: 4px 12px;
+    border-radius: 4px;
+    font-family: 'Jersey 25', serif;
+    display: inline-block;
+    margin-bottom: 10px;
+}
+
+.nom-article-detail {
+    font-family: 'Jersey 25', serif;
+    color: #921A84;
+}
+
+.description-article {
+    color: #555;
+    margin: 15px 0;
+}
+
+.prix-article-detail {
+    font-family: 'Jersey 25', serif;
+    font-size: 1.8rem;
+    color: #921A84;
+    font-weight: bold;
+}
+
+.btn-retour {
+    background-color: #555;
+    color: white;
+    padding: 6px 15px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-family: 'Jersey 25', serif;
+    display: inline-block;
+}
+
+.btn-retour:hover {
+    background-color: #333;
+    color: white;
+}

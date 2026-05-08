@@ -1,5 +1,5 @@
 <?php
-
+ob_start();
 require 'admin/src/php/utils/all_includes.php';
 session_start();
 
@@ -21,6 +21,8 @@ session_start();
     <link rel="stylesheet" type="text/css" href="admin/assets/css/header.css">
     <link rel="stylesheet" type="text/css" href="admin/assets/css/footer.css">
     <link rel="stylesheet" type="text/css" href="admin/assets/css/menu.css">
+    <link rel="stylesheet" type="text/css" href="admin/assets/css/article.css">
+    <link rel="stylesheet" type="text/css" href="admin/assets/css/boutique.css">
 </head >
 <body>
     <div id="wrapper">

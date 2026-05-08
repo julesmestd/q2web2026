@@ -1,5 +1,5 @@
 <?php
-
+ob_start();
 require 'src/php/utils/all_includes.php';
 session_start();
 if(isset($_SESSION['admin']) && !isset($_SESSION['page'])){

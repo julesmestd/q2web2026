@@ -1,0 +1,48 @@
+.titre-boutique {
+    font-family: 'Jersey 25', serif;
+    color: #921A84;
+    margin-bottom: 20px;
+}
+
+.carte-boutique {
+    text-align: center;
+}
+
+.carte-boutique a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.img-boutique {
+    max-height: 150px;
+    object-fit: contain;
+    width: 100%;
+}
+
+.nom-article {
+    margin-top: 8px;
+    font-family: 'Jersey 25', serif;
+    font-size: 1rem;
+}
+
+.prix-boutique {
+    font-weight: bold;
+    color: #921A84;
+    font-family: 'Jersey 25', serif;
+}
+
+.btn-panier {
+    background-color: #921A84;
+    color: white;
+    padding: 6px 15px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-family: 'Jersey 25', serif;
+    display: inline-block;
+    margin-top: 5px;
+}
+
+.btn-panier:hover {
+    background-color: #BB77FF;
+    color: white;
+}

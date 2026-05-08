@@ -17,20 +17,16 @@ if (!$art) {
 
 <div class="container mt-4">
     <div class="row">
-        <div class="col-md-5 text-center">
-            <img src="admin/assets/images/<?= $art->image ?>"
-                 alt="<?= $art->nom_article ?>"
-                 class="img-fluid"
-                 style="max-height:400px; object-fit:contain;">
+        <div class="col-md-5 img-article-container">
+            <img src="admin/assets/images/<?= $art->image ?>" alt="<?= $art->nom_article ?>" class="img-article">
         </div>
-        <div class="col-md-7">
-            <span class="badge bg-warning text-dark mb-2"><?= $art->nom_type ?></span>
-            <h2><?= $art->nom_article ?></h2>
-            <p class="text-muted"><?= $art->description ?></p>
-            <h4><?= number_format($art->prix, 2) ?>€</h4>
-            <a href="index_.php?page=panier.php&action=ajouter&id=<?= $art->id_article ?>"
-               class="btn btn-primary me-2">Ajouter au panier</a>
-            <a href="javascript:history.back()" class="btn btn-secondary">Retour</a>
+        <div class="col-md-7 detail-article">
+            <span class="badge-type"><?= $art->nom_type ?></span>
+            <h2 class="nom-article-detail"><?= $art->nom_article ?></h2>
+            <p class="description-article"><?= $art->description ?></p>
+            <p class="prix-article-detail"><?= number_format($art->prix, 2) ?>€</p>
+            <a href="index_.php?page=panier.php&action=ajouter&id=<?= $art->id_article ?>" class="btn-panier me-2">Ajouter au panier</a>
+            <a href="javascript:history.back()" class="btn-retour">Retour</a>
         </div>
     </div>
 </div>
