@@ -28,7 +28,6 @@ if (!$art) {
             <h2><?= $art->nom_article ?></h2>
             <p class="text-muted"><?= $art->description ?></p>
             <h4><?= number_format($art->prix, 2) ?>€</h4>
-            <p>Stock : <?= $art->stock ?></p>
             <a href="index_.php?page=panier.php&action=ajouter&id=<?= $art->id_article ?>"
                class="btn btn-primary me-2">Ajouter au panier</a>
             <a href="javascript:history.back()" class="btn btn-secondary">Retour</a>

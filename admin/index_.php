@@ -17,13 +17,20 @@ if(isset($_SESSION['admin']) && !isset($_SESSION['page'])){
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous" defer></script>
     <script src="assets/js/fonctionsJquery.js" defer></script>
+    <link href="https://fonts.googleapis.com/css2?family=Jersey+25&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/header.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/footer.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/menu.css">
 </head >
 <body>
     <div id="wrapper">
         <header id="header">
             <?php
+            if(file_exists('src/php/utils/header.php')) {
+                include ('src/php/utils/header.php');
+            }
             if(file_exists('src/php/utils/admin_menu.php')) {
                 include ('src/php/utils/admin_menu.php');
             }
@@ -54,7 +61,13 @@ if(isset($_SESSION['admin']) && !isset($_SESSION['page'])){
             </section>
         </main>
 
-        <footer id="footer"><p>Footer</p></footer>
+        <footer id="footer">
+            <?php
+            if(file_exists('src/php/utils/footer.php')) {
+                include ('src/php/utils/footer.php');
+            }
+            ?>
+        </footer>
     </div>
 </body>
 </html>

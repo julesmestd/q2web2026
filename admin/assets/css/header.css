@@ -1,0 +1,28 @@
+.navbar-principale {
+    background-color: #BB77FF;
+}
+
+.navbar-principale .navbar-brand img {
+    height: 50px;
+    mix-blend-mode: multiply;
+}
+
+.navbar-principale .navbar-brand-text {
+    color: black;
+    font-family: 'Jersey 25', serif;
+    font-size: 1.5rem;
+    margin-left: 5px;
+}
+
+.navbar-principale .nav-link {
+    color: white;
+    font-family: 'Jersey 25', serif;
+}
+
+.navbar-principale .nav-link:hover {
+    color: #f0e6ff;
+}
+
+.navbar-principale .form-control {
+    font-family: 'Jersey 25', serif;
+}

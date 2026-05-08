@@ -1,13 +1,12 @@
-<nav class="navbar navbar-expand-lg bg-body-tertiary">
+<nav class="navbar navbar-expand-lg navbar-categories">
     <div class="container-fluid">
-        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="collapse navbar-collapse">
             <div class="navbar-nav">
-                <a class="nav-link" aria-current="page" href="./index_.php?page=accueil.php">Accueil</a>
-                <a class="nav-link" href="../index_.php?page=accueil.php">Accueil client</a>
-                <a class="nav-link" href="./index_.php?page=type.php">Gestion des types</a>
-                <a class="nav-link" href="./index_.php?page=gestion_articles.php">Gestion des articles</a>
-                <a class="nav-link" href="./index_.php?page=commandes.php">Commandes</a>
-                <a class="nav-link" href="./index_.php?page=mon_compte.php">Admin</a>
+                <a class="nav-link lien-categorie" href="./index_.php?page=accueil.php">Accueil</a>
+                <a class="nav-link lien-categorie" href="../index_.php?page=accueil.php">Accueil client</a>
+                <a class="nav-link lien-categorie" href="./index_.php?page=type.php">Gestion des types</a>
+                <a class="nav-link lien-categorie" href="./index_.php?page=gestion_articles.php">Gestion des articles</a>
+                <a class="nav-link lien-categorie" href="./index_.php?page=commandes.php">Commandes</a>
             </div>
         </div>
     </div>

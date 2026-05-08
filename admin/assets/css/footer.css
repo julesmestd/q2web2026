@@ -1,0 +1,17 @@
+.navbar-footer {
+    background-color: #921A84;
+    padding: 10px 20px;
+}
+
+.lien-footer {
+    color: black;
+    background-color: white;
+    border-radius: 4px;
+    padding: 4px 12px;
+    font-family: 'Jersey 25', serif;
+    font-weight: bold;
+}
+
+.lien-footer:hover {
+    background-color: #f0e6ff;
+}

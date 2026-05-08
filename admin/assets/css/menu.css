@@ -1,0 +1,18 @@
+.navbar-categories {
+    background-color: #921A84;
+}
+
+.lien-categorie {
+    color: white;
+    background-color: white;
+    color: black;
+    border-radius: 4px;
+    margin: 0 5px;
+    padding: 4px 12px;
+    font-family: 'Jersey 25', serif;
+}
+
+.lien-categorie:hover {
+    background-color: #f0e6ff;
+    color: #921A84;
+}
