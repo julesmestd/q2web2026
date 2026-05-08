@@ -32,8 +32,8 @@ if (isset($_GET['confirmer'])) {
 ?>
 
 <div class="container mt-4">
-    <h2>Récapitulatif de la commande</h2>
-    <table class="table">
+    <h2 class="titre-page">Récapitulatif de la commande</h2>
+    <table class="tableau">
         <thead>
         <tr><th>Article</th><th>Quantité</th><th>Prix unitaire</th><th>Sous-total</th></tr>
         </thead>
@@ -49,6 +49,6 @@ if (isset($_GET['confirmer'])) {
         </tbody>
     </table>
     <p><strong>Total : <?= number_format($total, 2) ?>€</strong></p>
-    <a href="index_.php?page=commande.php&confirmer=1" class="btn btn-success">Confirmer la commande</a>
-    <a href="index_.php?page=panier.php" class="btn btn-secondary">Retour au panier</a>
+    <a href="index_.php?page=commande.php&confirmer=1" class="btn-vert">Confirmer la commande</a>
+    <a href="index_.php?page=panier.php" class="btn-gris">Retour au panier</a>
 </div>

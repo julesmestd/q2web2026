@@ -23,6 +23,8 @@ if(isset($_SESSION['admin']) && !isset($_SESSION['page'])){
     <link rel="stylesheet" type="text/css" href="assets/css/header.css">
     <link rel="stylesheet" type="text/css" href="assets/css/footer.css">
     <link rel="stylesheet" type="text/css" href="assets/css/menu.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/formulaire.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/tableaux.css">
 </head >
 <body>
     <div id="wrapper">

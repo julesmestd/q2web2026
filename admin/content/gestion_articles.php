@@ -20,9 +20,9 @@ $data = $articles->getVueArticles();
 ?>
 
 <div class="container mt-4">
-    <button class="btn btn-primary mb-3" id="inserer">+ Insérer un nouvel article</button>
+    <button class="btn-violet mb-3" id="inserer">+ Insérer un nouvel article</button>
     <form action="<?= $_SERVER['PHP_SELF'] ?>" method="get" id="ajout_nouveau">
-        <table class="table table-responsive">
+        <table class="tableau">
             <tr>
                 <td><input type="text" class="form-control" name="nom_article" placeholder="Nom de l'article"></td>
                 <td><input type="number" class="form-control" name="stock" placeholder="Stock"></td>
@@ -37,14 +37,14 @@ $data = $articles->getVueArticles();
                     </select>
                 </td>
                 <td><input type="text" class="form-control" name="image" placeholder="Image"></td>
-                <td><input type="submit" name="submit" class="btn btn-primary" value="+"></td>
+                <td><input type="submit" name="submit" class="btn-violet" value="+"></td>
             </tr>
         </table>
     </form>
 
     <?php if ($data != null): ?>
-        <p class="fw-bold">Articles disponibles</p>
-        <table class="table table-striped table-responsive">
+        <p class="titre-page">Articles disponibles</p>
+        <table class="tableau">
             <tr>
                 <th>Id</th><th>Nom</th><th>Stock</th><th>Prix</th><th>Description</th><th>Type</th><th>Image</th><th>Suppr.</th>
             </tr>
@@ -72,6 +72,6 @@ $data = $articles->getVueArticles();
             <?php endforeach; ?>
         </table>
     <?php else: ?>
-        <p class="fw-bold">Pas encore d'articles</p>
+        <p class="message-vide">Pas encore d'articles</p>
     <?php endif; ?>
 </div>

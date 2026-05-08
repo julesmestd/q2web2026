@@ -14,18 +14,18 @@ $liste = $types->getAllTypes();
 ?>
 
 <div class="container mt-4">
-    <h2>Gestion des types</h2>
+    <h2 class="titre-page">Gestion des types</h2>
 
-    <button class="btn btn-primary" id="inserer">+ Ajouter un type</button>
+    <button class="btn-violet" id="inserer">+ Ajouter un type</button>
 
-    <form action="<?= $_SERVER['PHP_SELF'] ?>" method="get" id="ajout_nouveau" style="display:none">
+    <form action="<?= $_SERVER['PHP_SELF'] ?>" method="get" id="ajout_nouveau">
         <div class="input-group mb-3">
             <input type="text" class="form-control" name="nom_type" placeholder="Nom du type">
-            <button type="submit" class="btn btn-primary" name="submit">Ajouter</button>
+            <button type="submit" class="btn-violet" name="submit">Ajouter</button>
         </div>
     </form>
 
-    <table class="table table-striped">
+    <table class="tableau">
         <thead>
         <tr>
             <th>Id</th>

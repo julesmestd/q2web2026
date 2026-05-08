@@ -9,12 +9,12 @@ $commandes = $commandeDAO->getCommandesClient((int)$_SESSION['client']->id_clien
 ?>
 
 <div class="container mt-4">
-    <h2>Mes commandes</h2>
+    <h2 class="titre-page">Mes commandes</h2>
 
     <?php if (!$commandes): ?>
         <p>Vous n'avez pas encore de commandes.</p>
     <?php else: ?>
-        <table class="table table-striped">
+        <table class="tableau">
             <thead>
             <tr>
                 <th>N° commande</th>
@@ -36,5 +36,5 @@ $commandes = $commandeDAO->getCommandesClient((int)$_SESSION['client']->id_clien
         </table>
     <?php endif; ?>
 
-    <a href="index_.php?page=accueil.php" class="btn btn-secondary mt-3">Retour à l'accueil</a>
+    <a href="index_.php?page=accueil.php" class="btn-gris mt-3">Retour à l'accueil</a>
 </div>

@@ -45,13 +45,13 @@ if (isset($_GET['action']) && isset($_GET['id'])) {
 ?>
 
 <div class="container mt-4">
-    <h2>Mon panier</h2>
+    <h2 class="titre-page">Mon panier</h2>
 
     <?php if (!isset($_SESSION['client'])): ?>
         <?php if (empty($_SESSION['panier'])): ?>
-            <p>Votre panier est vide.</p>
+            <p class="message-vide">Votre panier est vide.</p>
         <?php else: ?>
-            <table class="table">
+            <table class="tableau">
                 <thead>
                 <tr><th>Article</th><th>Quantité</th><th>Prix</th><th>Supprimer</th></tr>
                 </thead>
@@ -68,9 +68,9 @@ if (isset($_GET['action']) && isset($_GET['id'])) {
                     <tr data-id="<?= $id_article ?>" data-prix="<?= $art->prix ?>">
                         <td><?= $art->nom_article ?></td>
                         <td>
-                            <button class="btn btn-sm btn-outline-secondary btn-moins" data-id="<?= $id_article ?>">-</button>
+                            <button class="btn-quantite btn-moins" data-id="<?= $id_article ?>">-</button>
                             <span class="quantite"><?= $quantite ?></span>
-                            <button class="btn btn-sm btn-outline-secondary btn-plus" data-id="<?= $id_article ?>">+</button>
+                            <button class="btn-quantite btn-plus" data-id="<?= $id_article ?>">+</button>
                         </td>
                         <td class="prix-article"><?= number_format($sous_total, 2) ?>€</td>
                         <td class="delete" >
@@ -83,8 +83,8 @@ if (isset($_GET['action']) && isset($_GET['id'])) {
                 <?php endforeach; ?>
                 </tbody>
             </table>
-            <p><strong>Total : <span id="total"><?= number_format($total, 2) ?>€</span></strong></p>
-            <a href="index_.php?page=login_client.php" class="btn btn-primary">Passer commande</a>
+            <p class="total-panier">Total : <span id="total"><?= number_format($total, 2) ?>€</span></p>
+            <a href="index_.php?page=login_client.php" class="btn-violet">Passer commande</a>
         <?php endif; ?>
 
     <?php else: ?>
@@ -93,9 +93,9 @@ if (isset($_GET['action']) && isset($_GET['id'])) {
         $lignes = $panierDAO->getPanier((int)$_SESSION['client']->id_client);
         ?>
         <?php if (!$lignes): ?>
-            <p>Votre panier est vide.</p>
+            <p class="message-vide">Votre panier est vide.</p>
         <?php else: ?>
-            <table class="table">
+            <table class="tableau">
                 <thead>
                 <tr><th>Article</th><th>Quantité</th><th>Prix</th><th>Supprimer</th></tr>
                 </thead>
@@ -109,9 +109,9 @@ if (isset($_GET['action']) && isset($_GET['id'])) {
                     <tr data-id="<?= $ligne['id_article'] ?>" data-prix="<?= $ligne['prix'] ?>">
                         <td><?= $ligne['nom_article'] ?></td>
                         <td>
-                            <button class="btn btn-sm btn-outline-secondary btn-moins" data-id="<?= $ligne['id_article'] ?>">-</button>
+                            <button class="btn-quantite btn-moins" data-id="<?= $ligne['id_article'] ?>">-</button>
                             <span class="quantite"><?= $ligne['quantite'] ?></span>
-                            <button class="btn btn-sm btn-outline-secondary btn-plus" data-id="<?= $ligne['id_article'] ?>">+</button>
+                            <button class="btn-quantite btn-plus" data-id="<?= $ligne['id_article'] ?>">+</button>
                         </td>
                         <td class="prix-article"><?= number_format($sous_total, 2) ?>€</td>
                         <td class="delete" >
@@ -124,10 +124,10 @@ if (isset($_GET['action']) && isset($_GET['id'])) {
                 <?php endforeach; ?>
                 </tbody>
             </table>
-            <p><strong>Total : <span id="total"><?= number_format($total, 2) ?>€</span></strong></p>
-            <a href="index_.php?page=commande.php" class="btn btn-primary">Passer commande</a>
+            <p class="total-panier">Total : <span id="total"><?= number_format($total, 2) ?>€</span></p>
+            <a href="index_.php?page=commande.php" class="btn-violet">Passer commande</a>
         <?php endif; ?>
     <?php endif; ?>
 
-    <a href="javascript:history.back()" class="btn btn-secondary mt-2">Continuer mes achats</a>
+    <a href="javascript:history.back()" class="btn-gris mt-2">Continuer mes achats</a>
 </div>

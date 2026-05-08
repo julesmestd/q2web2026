@@ -29,19 +29,19 @@ if (isset($_GET['submit'])) {
 }
 ?>
 
-<form method="get" action="<?= $_SERVER['PHP_SELF'] ?>">
-    <div class="mb-3">
-        <label class="form-label">Email</label>
-        <input type="email" class="form-control" name="email" id="email">
-    </div>
-    <div class="mb-3">
-        <label class="form-label">Mot de passe</label>
-        <input type="password" class="form-control" name="password" id="password">
-    </div>
-    <button type="submit" class="btn btn-primary" name="submit">Se connecter</button>
-    <br>
-    <a href="admin/index_.php?page=login.php">Connexion admin</a>
-</form>
-<p class="mt-3">
-    Pas encore de compte ? <a href="index_.php?page=compte.php">Créer un compte</a>
-</p>
+<div class="form-container">
+    <h2 class="form-titre">Connexion</h2>
+    <form method="get" action="<?= $_SERVER['PHP_SELF'] ?>">
+        <div class="form-groupe">
+            <label class="form-label-custom">Email</label>
+            <input type="email" class="form-input" name="email" id="email">
+        </div>
+        <div class="form-groupe">
+            <label class="form-label-custom">Mot de passe</label>
+            <input type="password" class="form-input" name="password" id="password">
+        </div>
+        <button type="submit" class="btn-formulaire" name="submit">Se connecter</button>
+    </form>
+    <p class="form-lien">Pas encore de compte ? <a href="index_.php?page=compte.php">Créer un compte</a></p>
+    <p class="form-lien"><a href="admin/index_.php?page=login.php">Connexion admin</a></p>
+</div>

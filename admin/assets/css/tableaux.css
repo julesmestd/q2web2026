@@ -1,0 +1,126 @@
+.tableau {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: 'Jersey 25', serif;
+    margin-top: 15px;
+}
+
+.tableau th {
+    background-color: #921A84;
+    color: white;
+    padding: 10px;
+    text-align: left;
+}
+
+.tableau td {
+    padding: 8px 10px;
+    border-bottom: 1px solid #BB77FF44;
+}
+
+.tableau tr:hover {
+    background-color: #f9f0ff;
+}
+
+.titre-page {
+    font-family: 'Jersey 25', serif;
+    color: #921A84;
+    margin-bottom: 20px;
+}
+
+.btn-violet {
+    background-color: #921A84;
+    color: white;
+    border: none;
+    padding: 6px 15px;
+    border-radius: 4px;
+    font-family: 'Jersey 25', serif;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.btn-violet:hover {
+    background-color: #BB77FF;
+    color: white;
+}
+
+.btn-gris {
+    background-color: #555;
+    color: white;
+    border: none;
+    padding: 6px 15px;
+    border-radius: 4px;
+    font-family: 'Jersey 25', serif;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.btn-gris:hover {
+    background-color: #333;
+    color: white;
+}
+
+.btn-vert {
+    background-color: #27ae60;
+    color: white;
+    border: none;
+    padding: 6px 15px;
+    border-radius: 4px;
+    font-family: 'Jersey 25', serif;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.btn-vert:hover {
+    background-color: #1e8449;
+    color: white;
+}
+
+.total-panier {
+    font-family: 'Jersey 25', serif;
+    font-size: 1.2rem;
+    color: #921A84;
+    margin-top: 10px;
+}
+
+.message-vide {
+    font-family: 'Jersey 25', serif;
+    color: #555;
+}
+
+.btn-quantite {
+    background-color: #BB77FF;
+    color: white;
+    border: none;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-family: 'Jersey 25', serif;
+    cursor: pointer;
+}
+
+.btn-quantite:hover {
+    background-color: #921A84;
+}
+
+.delete-panier, .delete-article, .delete-type {
+    color: #921A84;
+    cursor: pointer;
+}
+
+.delete-panier:hover, .delete-article:hover, .delete-type:hover {
+    color: red;
+}
+
+.delete-panier a, .delete-article a, .delete-type a {
+    color: #921A84;
+}
+
+.delete-panier a:hover, .delete-article a:hover, .delete-type a:hover {
+    color: red;
+}
+
+#ajout_nouveau {
+    display: none;
+}

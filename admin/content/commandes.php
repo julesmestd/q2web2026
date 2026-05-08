@@ -6,12 +6,12 @@ $commandes = $commandeDAO->getToutesCommandes();
 ?>
 
 <div class="container mt-4">
-    <h2>Toutes les commandes</h2>
+    <h2 class="titre-page">Toutes les commandes</h2>
 
     <?php if (!$commandes): ?>
         <p>Aucune commande pour le moment.</p>
     <?php else: ?>
-        <table class="table table-striped">
+        <table class="tableau"">
             <thead>
             <tr>
                 <th>N° commande</th>

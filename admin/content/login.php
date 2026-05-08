@@ -9,9 +9,9 @@ if(isset($_GET['submit'])) {
         //var_dump($adm);
         if($adm != null) {
             $_SESSION['admin'] = $adm;
-            $_SESSION['page'] = "accueil.php"; //page par défaut
+            $_SESSION['page'] = "accueil.php";
             header("location:./index_.php?page=accueil.php");
-            exit(); //pour arrêter l'exécution de la suite
+            exit();
         } else {
             print "<br>Accès réservé aux administrateurs<br>";
         }
@@ -21,17 +21,18 @@ if(isset($_GET['submit'])) {
 
 ?>
 
-<form method="get" action="<?= $_SERVER['PHP_SELF'] ?>">
-<!—choix d'un formulaire Bootstrap -->
-  <div class="mb-3">
-    <label for="login" class="form-label">Login : </label>
-    <input type="text" class="form-control" id="login" name="login">
-  </div>
-  <div class="mb-3">
-    <label for="password" class="form-label">Password : </label>
-    <input type="password" class="form-control" id="password" name="password">
-  </div>
-
-  <button type="submit" class="btn btn-primary" name="submit">Submit</button>
-</form>
+<div class="form-container">
+    <h2 class="form-titre">Administration</h2>
+    <form method="get" action="<?= $_SERVER['PHP_SELF'] ?>">
+        <div class="form-groupe">
+            <label class="form-label-custom">Login</label>
+            <input type="text" class="form-input" id="login" name="login">
+        </div>
+        <div class="form-groupe">
+            <label class="form-label-custom">Mot de passe</label>
+            <input type="password" class="form-input" id="password" name="password">
+        </div>
+        <button type="submit" class="btn-formulaire" name="submit">Se connecter</button>
+    </form>
+</div>
 

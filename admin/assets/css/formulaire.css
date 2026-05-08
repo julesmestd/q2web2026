@@ -1,0 +1,106 @@
+.form-container {
+    max-width: 400px;
+    margin: 40px auto;
+    padding: 30px;
+    border: 2px solid #BB77FF;
+    border-radius: 8px;
+}
+
+.form-container-large {
+    max-width: 600px;
+}
+
+.form-titre {
+    font-family: 'Jersey 25', serif;
+    color: #921A84;
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+.form-section-titre {
+    font-family: 'Jersey 25', serif;
+    color: #BB77FF;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.form-groupe {
+    margin-bottom: 15px;
+}
+
+.form-label-custom {
+    font-family: 'Jersey 25', serif;
+    color: #333;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.form-input {
+    width: 100%;
+    padding: 8px 12px;
+    border: 1px solid #BB77FF;
+    border-radius: 4px;
+    font-family: 'Jersey 25', serif;
+    outline: none;
+}
+
+.form-input:focus {
+    border-color: #921A84;
+    box-shadow: 0 0 0 2px #BB77FF44;
+}
+
+.btn-formulaire {
+    background-color: #921A84;
+    color: white;
+    border: none;
+    padding: 8px 20px;
+    border-radius: 4px;
+    font-family: 'Jersey 25', serif;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.btn-formulaire:hover {
+    background-color: #BB77FF;
+}
+
+.btn-formulaire-annuler {
+    background-color: #555;
+    color: white;
+    border: none;
+    padding: 8px 20px;
+    border-radius: 4px;
+    font-family: 'Jersey 25', serif;
+    cursor: pointer;
+    margin-top: 10px;
+    margin-left: 10px;
+}
+
+.btn-formulaire-annuler:hover {
+    background-color: #333;
+}
+
+.form-lien {
+    margin-top: 15px;
+    font-family: 'Jersey 25', serif;
+    text-align: center;
+}
+
+.form-lien a {
+    color: #921A84;
+    text-decoration: none;
+}
+
+.form-lien a:hover {
+    color: #BB77FF;
+}
+
+.form-erreur {
+    color: red;
+    font-family: 'Jersey 25', serif;
+    text-align: center;
+}
+
+.form-boutons {
+    margin-top: 10px;
+}

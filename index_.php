@@ -23,6 +23,8 @@ session_start();
     <link rel="stylesheet" type="text/css" href="admin/assets/css/menu.css">
     <link rel="stylesheet" type="text/css" href="admin/assets/css/article.css">
     <link rel="stylesheet" type="text/css" href="admin/assets/css/boutique.css">
+    <link rel="stylesheet" type="text/css" href="admin/assets/css/formulaire.css">
+    <link rel="stylesheet" type="text/css" href="admin/assets/css/tableaux.css">
 </head >
 <body>
     <div id="wrapper">

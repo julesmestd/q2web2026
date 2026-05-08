@@ -11,7 +11,6 @@ if (isset($_GET['submit_client'])) {
             $client = $clientDAO->getClient($email, $password);
             $_SESSION['client'] = $client;
 
-            // Transférer le panier session en base
             if (!empty($_SESSION['panier'])) {
                 $panierDAO = new PanierDAO($cnx);
                 foreach ($_SESSION['panier'] as $id_article => $quantite) {
@@ -30,52 +29,55 @@ if (isset($_GET['submit_client'])) {
 }
 ?>
 
-<div class="container">
-    <form action="<?= $_SERVER['PHP_SELF']; ?>" method="get">
+<div class="form-container form-container-large">
+    <h2 class="form-titre">Créer un compte</h2>
+    <form action="<?= $_SERVER['PHP_SELF'] ?>" method="get">
 
-        <h5>Informations personnelles</h5>
+        <h5 class="form-section-titre">Informations personnelles</h5>
 
-        <div class="mb-3">
-            <label class="form-label">Email</label>
-            <input type="email" class="form-control" name="email" id="email">
+        <div class="form-groupe">
+            <label class="form-label-custom">Email</label>
+            <input type="email" class="form-input" name="email" id="email">
         </div>
-        <div class="mb-3">
-            <label class="form-label">Mot de passe</label>
-            <input type="password" class="form-control" name="password" id="password">
+        <div class="form-groupe">
+            <label class="form-label-custom">Mot de passe</label>
+            <input type="password" class="form-input" name="password" id="password">
         </div>
-        <div class="mb-3">
-            <label class="form-label">Nom</label>
-            <input type="text" class="form-control" name="nom" id="nom">
+        <div class="form-groupe">
+            <label class="form-label-custom">Nom</label>
+            <input type="text" class="form-input" name="nom" id="nom">
         </div>
-        <div class="mb-3">
-            <label class="form-label">Prénom</label>
-            <input type="text" class="form-control" name="prenom" id="prenom">
+        <div class="form-groupe">
+            <label class="form-label-custom">Prénom</label>
+            <input type="text" class="form-input" name="prenom" id="prenom">
         </div>
-        <div class="mb-3">
-            <label class="form-label">Téléphone</label>
-            <input type="text" class="form-control" name="telephone" id="telephone">
-        </div>
-
-        <h5 class="mt-4">Adresse</h5>
-
-        <div class="mb-3">
-            <label class="form-label">Numéro de rue</label>
-            <input type="text" class="form-control" name="num_rue" id="num_rue">
-        </div>
-        <div class="mb-3">
-            <label class="form-label">Nom de la rue</label>
-            <input type="text" class="form-control" name="nom_rue" id="nom_rue">
-        </div>
-        <div class="mb-3">
-            <label class="form-label">Code postal</label>
-            <input type="number" class="form-control" name="cp" id="cp">
-        </div>
-        <div class="mb-3">
-            <label class="form-label">Ville</label>
-            <input type="text" class="form-control" name="ville" id="ville">
+        <div class="form-groupe">
+            <label class="form-label-custom">Téléphone</label>
+            <input type="text" class="form-input" name="telephone" id="telephone">
         </div>
 
-        <button type="submit" class="btn btn-primary" name="submit_client">Créer mon compte</button>
-        <button type="reset" class="btn btn-secondary">Annuler</button>
+        <h5 class="form-section-titre">Adresse</h5>
+
+        <div class="form-groupe">
+            <label class="form-label-custom">Numéro de rue</label>
+            <input type="text" class="form-input" name="num_rue" id="num_rue">
+        </div>
+        <div class="form-groupe">
+            <label class="form-label-custom">Nom de la rue</label>
+            <input type="text" class="form-input" name="nom_rue" id="nom_rue">
+        </div>
+        <div class="form-groupe">
+            <label class="form-label-custom">Code postal</label>
+            <input type="number" class="form-input" name="cp" id="cp">
+        </div>
+        <div class="form-groupe">
+            <label class="form-label-custom">Ville</label>
+            <input type="text" class="form-input" name="ville" id="ville">
+        </div>
+
+        <div class="form-boutons">
+            <button type="submit" class="btn-formulaire" name="submit_client">Créer mon compte</button>
+            <button type="reset" class="btn-formulaire-annuler">Annuler</button>
+        </div>
     </form>
 </div>
