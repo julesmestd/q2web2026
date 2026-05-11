@@ -5,12 +5,12 @@ if (isset($_GET['submit_client'])) {
             && !empty($telephone) && !empty($cp) && !empty($ville) && !empty($nom_rue) && !empty($num_rue)) {
         $clientDAO = new ClientDAO($cnx);
         $retour = $clientDAO->addClient($nom, $prenom, $email, $password, $telephone, $cp, $ville, $nom_rue, $num_rue);
+        //si tous les champs sont complétés on ajoute le client dans la bd
         if ($retour != null) {
-
             $clientDAO = new ClientDAO($cnx);
             $client = $clientDAO->getClient($email, $password);
             $_SESSION['client'] = $client;
-
+            //on connecte le client à la session
             if (!empty($_SESSION['panier'])) {
                 $panierDAO = new PanierDAO($cnx);
                 foreach ($_SESSION['panier'] as $id_article => $quantite) {
@@ -18,7 +18,9 @@ if (isset($_GET['submit_client'])) {
                         $panierDAO->ajouterArticle((int)$client->id_client, $id_article);
                     }
                 }
+                //on ajoute au panier s'il y a quelque chose et on retire le panier de la session
                 unset($_SESSION['panier']);
+
             }
 
             header("location: index_.php?page=accueil.php");

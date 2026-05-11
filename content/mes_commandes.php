@@ -6,6 +6,7 @@ if (!isset($_SESSION['client'])) {
 
 $commandeDAO = new CommandeDAO($cnx);
 $commandes = $commandeDAO->getCommandesClient((int)$_SESSION['client']->id_client);
+//on prend les commandes avec l'id du client connecté
 ?>
 
 <div class="container mt-4">

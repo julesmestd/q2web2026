@@ -6,6 +6,7 @@ if (!isset($_SESSION['client'])) {
 
 $panierDAO = new PanierDAO($cnx);
 $lignes = $panierDAO->getPanier((int)$_SESSION['client']->id_client);
+//on retourne le panier avec l'id cu client connecté
 
 if (!$lignes) {
     header("location: index_.php?page=panier.php");
@@ -22,6 +23,7 @@ foreach ($lignes as $ligne) {
 if (isset($_GET['confirmer'])) {
     $commandeDAO = new CommandeDAO($cnx);
     $retour = $commandeDAO->ajoutCommande((int)$_SESSION['client']->id_client, $total);
+    //ajout d'une commande avec l'id du client connecté
     if ($retour != null) {
         header("location: index_.php?page=mes_commandes.php");
         exit();

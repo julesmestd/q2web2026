@@ -8,11 +8,13 @@ $recherche = $_GET['recherche'] ?? null;
 if ($type) {
     $data = array_filter($data, fn($art) => strtolower($art->nom_type) === strtolower($type));
 }
+//on garde les articles correspondant au type
 if ($recherche) {
     $data = array_filter($data, fn($art) =>
             str_contains(strtolower($art->nom_article), strtolower($recherche)) ||
             str_contains(strtolower($art->nom_type), strtolower($recherche))
     );
+    //on met dans $data les articles qui dans le nom du type ou le nom de l'article ont la recherche
     if (empty($data)) {
         header("location: index_.php?page=page404.php");
         exit();
@@ -22,6 +24,7 @@ if ($recherche) {
 
 <div class="container mt-4">
     <h2 class="titre-boutique"><?= $type ? ucfirst($type) : 'Tous les articles' ?></h2>
+    <?php //ucfirst met la première lettre en majuscule ?>
     <div class="row">
         <?php foreach ($data as $art): ?>
             <div class="col-md-3 mb-4 carte-boutique">

@@ -5,10 +5,13 @@ if (isset($_GET['action']) && isset($_GET['id'])) {
     if ($_GET['action'] == 'ajouter') {
         if (!isset($_SESSION['client'])) {
             if (!isset($_SESSION['panier'])) $_SESSION['panier'] = [];
+            //on crée le panier en session si pas de client en session
             if (isset($_SESSION['panier'][$id])) {
                 $_SESSION['panier'][$id]++;
+                //si déjà l'article on ajoute
             } else {
                 $_SESSION['panier'][$id] = 1;
+                //on ajoute l'article
             }
         } else {
             $panierDAO = new PanierDAO($cnx);
@@ -22,6 +25,7 @@ if (isset($_GET['action']) && isset($_GET['id'])) {
     if ($_GET['action'] == 'supprimer') {
         if (!isset($_SESSION['client'])) {
             unset($_SESSION['panier'][$id]);
+            //si pas connecté vide en session
         } else {
             $panierDAO = new PanierDAO($cnx);
             $panierDAO->effacerArticle((int)$_SESSION['client']->id_client, $id);
@@ -64,6 +68,7 @@ if (isset($_GET['action']) && isset($_GET['id'])) {
                     $art = current(array_filter($data, fn($a) => $a->id_article == $id_article));
                     $sous_total = $art->prix * $quantite;
                     $total += $sous_total;
+                    //on garde les articles correspondant aux id présent dans la session
                     ?>
                     <tr data-id="<?= $id_article ?>" data-prix="<?= $art->prix ?>">
                         <td><?= $art->nom_article ?></td>

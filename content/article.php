@@ -9,6 +9,9 @@ $articles = new ArticleTypeDAO($cnx);
 $data = $articles->getVueArticles();
 $art = current(array_filter($data, fn($a) => $a->id_article == $id));
 
+//récuperer l'article qui correspond à l'id sur lequel on clique
+//current transforme le tableau avec un article en juste un article
+
 if (!$art) {
     header("location: index_.php?page=accueil.php");
     exit();

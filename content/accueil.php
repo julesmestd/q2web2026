@@ -9,6 +9,9 @@ $selection = array_filter($data, fn($art) => in_array($art->id_article, $idsAccu
 $nouveautes = array_filter($selection, fn($art) => in_array($art->id_article, $idsNouveautes));
 $reste = array_filter($selection, fn($art) => !in_array($art->id_article, $idsNouveautes));
 
+//$nouveautes devient un tableau avec indices 7,8,9
+//inverse pour reste
+
 $parType = [];
 foreach ($reste as $art) {
     $parType[$art->nom_type][] = $art;
